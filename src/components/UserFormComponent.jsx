@@ -1,9 +1,9 @@
-import { Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import PropTypes from 'prop-types';
 
 export const UserFormComponent = (props) => {
-  const { users, handlerAddUser, OnInputChange } = props;
+  const { users, handlerAddUser, OnInputChange, handlerVisibleForm } = props;
   const { name, email, password } = users;
 
   const onSubmit = (event) => {
@@ -17,12 +17,12 @@ export const UserFormComponent = (props) => {
       return;
     }
     handlerAddUser(users);
+    handlerVisibleForm();
   };
 
   return (
     <>
       <div>
-        <h1>Formulario de usuario</h1>
         <Form onSubmit={onSubmit}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <Form.Label>Nombre</Form.Label>
@@ -60,6 +60,7 @@ export const UserFormComponent = (props) => {
           <button type="submit" className="btn btn-primary">
             {users.id === 0 ? 'Agregar Usuario' : 'Actualizar Usuario'}
           </button>
+          <Button variant="secondary" className="ms-2" onClick={() => handlerVisibleForm()}> Cerrar </Button>
         </Form>
       </div>
     </>

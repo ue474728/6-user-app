@@ -19,7 +19,7 @@ export const UserListComponent = ({
   return (
     <>
       <div>
-        <h1>User List</h1>
+        <h1>Lista Usuarios</h1>
         <Table className="table table-striped">
           <thead>
             <tr>

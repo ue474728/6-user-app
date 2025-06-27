@@ -15,6 +15,7 @@ export const UserHook = () => {
   const [users, setUsers] = useState(initialStateUser);
   const [userList, setUserList] = useState([]);
   const [, dispatch] = useReducer(UserReducer, []);
+  const [show, setShow] = useState(false);
 
   const { SET_USER, DELETE_USER, UPDATE_USER } = UserConst;
   useEffect(() => {
@@ -49,7 +50,7 @@ export const UserHook = () => {
     Swal.fire({
       title: '¿Está seguro?',
       text: '¡Esto no lo podrás revertir!',
-      icon: 'Advertencia',
+      icon: 'warning',
       showCancelButton: true,
       cancelButtonText: 'Cancelar',
       confirmButtonColor: '#3085d6',
@@ -69,7 +70,7 @@ export const UserHook = () => {
         Swal.fire({
           title: 'Eliminado!',
           text: 'Usuario Eliminado.',
-          icon: 'Éxito',
+          icon: 'success',
         });
       }
     });
@@ -82,6 +83,7 @@ export const UserHook = () => {
       email: updatedUser.email ?? '',
       password: updatedUser.password ?? '',
     });
+    handlerVisibleForm();
   };
 
   const OnInputChange = (event) => {
@@ -92,6 +94,13 @@ export const UserHook = () => {
     });
   };
 
+  const handlerVisibleForm = () => {
+    setShow(!show);
+    if (show) {
+      setUsers(initialStateUser);
+    }
+  };
+
   return {
     userList,
     users,
@@ -99,5 +108,7 @@ export const UserHook = () => {
     handlerUpdateUser,
     handlerDeleteUser,
     OnInputChange,
+    handlerVisibleForm,
+    show,
   };
 };
