@@ -60,7 +60,14 @@ export const UserFormComponent = (props) => {
           <button type="submit" className="btn btn-primary">
             {users.id === 0 ? 'Agregar Usuario' : 'Actualizar Usuario'}
           </button>
-          <Button variant="secondary" className="ms-2" onClick={() => handlerVisibleForm()}> Cerrar </Button>
+          <Button
+            variant="secondary"
+            className="ms-2"
+            onClick={() => handlerVisibleForm()}
+          >
+            {' '}
+            Cerrar{' '}
+          </Button>
         </Form>
       </div>
     </>
@@ -71,4 +78,5 @@ UserFormComponent.propTypes = {
   users: PropTypes.object.isRequired,
   handlerAddUser: PropTypes.func.isRequired,
   OnInputChange: PropTypes.func.isRequired,
+  handlerVisibleForm: PropTypes.func.isRequired,
 };
