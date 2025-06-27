@@ -38,7 +38,7 @@ graph TD
 
     subgraph "Interacciones del Usuario"
         E(Usuario) -- Rellena formulario y hace submit --> D
-        E -- Clica en "Actualizar" o "Eliminar" --> C
+        E -- Clica en Actualizar o Eliminar --> C
     end
 
     subgraph "Acciones y Estado"
@@ -87,11 +87,11 @@ Sigue estos pasos para ejecutar el proyecto en tu máquina local:
 
 En el archivo `package.json` encontrarás los siguientes scripts:
 
--   `npm run dev`: Inicia el servidor de desarrollo de Vite.
--   `npm run build`: Compila la aplicación para producción.
--   `npm run lint`: Ejecuta ESLint para analizar el código en busca de errores.
--   `npm run format`: Formatea todo el código del proyecto con Prettier.
--   `npm run preview`: Sirve la versión de producción de la aplicación localmente.
+- `npm run dev`: Inicia el servidor de desarrollo de Vite.
+- `npm run build`: Compila la aplicación para producción.
+- `npm run lint`: Ejecuta ESLint para analizar el código en busca de errores.
+- `npm run format`: Formatea todo el código del proyecto con Prettier.
+- `npm run preview`: Sirve la versión de producción de la aplicación localmente.
 
 ## 🤝 Contribuciones
 
