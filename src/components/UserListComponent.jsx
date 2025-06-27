@@ -1,8 +1,11 @@
 import { Button, Table } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-export const UserListComponent = ({ userList, handlerUpdateUser, handlerDeleteUser }) => {
-
+export const UserListComponent = ({
+  userList,
+  handlerUpdateUser,
+  handlerDeleteUser,
+}) => {
   const eliminarUser = (userId) => {
     console.log('Eliminando usuario con ID:', userId);
     handlerDeleteUser(userId);
@@ -58,5 +61,5 @@ export const UserListComponent = ({ userList, handlerUpdateUser, handlerDeleteUs
 UserListComponent.propTypes = {
   userList: PropTypes.array.isRequired,
   handlerUpdateUser: PropTypes.func.isRequired,
-  handlerDeleteUser: PropTypes.func.isRequired
+  handlerDeleteUser: PropTypes.func.isRequired,
 };
