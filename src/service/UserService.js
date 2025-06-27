@@ -1,7 +1,7 @@
-import { Users } from "../data/user";
+import { Users } from '../data/user';
 
 export const getLisUsers = () => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve(Users);
     }, 1000);

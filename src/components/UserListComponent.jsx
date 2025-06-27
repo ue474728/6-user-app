@@ -1,15 +1,15 @@
-import { Button, Table } from "react-bootstrap";
+import { Button, Table } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
-export const UserListComponent = (props) => {
-  const { userList, handlerUpdateUser, handlerDeleteUser } = props;
+export const UserListComponent = ({ userList, handlerUpdateUser, handlerDeleteUser }) => {
 
   const eliminarUser = (userId) => {
-    console.log("Eliminando usuario con ID:", userId);
+    console.log('Eliminando usuario con ID:', userId);
     handlerDeleteUser(userId);
   };
 
   const actualizarUser = (user) => {
-    console.log("Actualizando usuario con ID:", user.id);
+    console.log('Actualizando usuario con ID:', user.id);
     handlerUpdateUser(user);
   };
 
@@ -37,7 +37,7 @@ export const UserListComponent = (props) => {
                 <td>
                   <Button
                     variant="warning"
-                    onClick={() => actualizarUser({id, name, email})}
+                    onClick={() => actualizarUser({ id, name, email })}
                     className="me-2"
                   >
                     Actualizar
@@ -53,4 +53,10 @@ export const UserListComponent = (props) => {
       </div>
     </>
   );
+};
+
+UserListComponent.propTypes = {
+  userList: PropTypes.array.isRequired,
+  handlerUpdateUser: PropTypes.func.isRequired,
+  handlerDeleteUser: PropTypes.func.isRequired
 };

@@ -1,20 +1,20 @@
-import { getLisUsers } from "../service/UserService";
-import React, { useEffect, useState, useReducer, use } from "react";
-import { UserReducer } from "../reducers/UserReducer";
-import { UserConst } from "../const/UserConst";
-import Swal from "sweetalert2";
+import { getLisUsers } from '../service/UserService';
+import { useEffect, useState, useReducer } from 'react';
+import { UserReducer } from '../reducers/UserReducer';
+import { UserConst } from '../const/UserConst';
+import Swal from 'sweetalert2';
 
 const initialStateUser = {
   id: 0,
-  name: "",
-  email: "",
-  password: "",
+  name: '',
+  email: '',
+  password: '',
 };
 
 export const UserHook = () => {
   const [users, setUsers] = useState(initialStateUser);
   const [userList, setUserList] = useState([]);
-  const [userReducer, dispatch] = useReducer(UserReducer, []);
+  const [, dispatch] = useReducer(UserReducer, []);
 
   const { SET_USER, DELETE_USER, UPDATE_USER } = UserConst;
   useEffect(() => {
@@ -47,14 +47,14 @@ export const UserHook = () => {
 
   const handlerDeleteUser = (userId) => {
     Swal.fire({
-      title: "¿Está seguro?",
-      text: "¡Esto no lo podrás revertir!",
-      icon: "Advertencia",
+      title: '¿Está seguro?',
+      text: '¡Esto no lo podrás revertir!',
+      icon: 'Advertencia',
       showCancelButton: true,
-      cancelButtonText: "Cancelar",
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Sí, ¡eliminalo!",
+      cancelButtonText: 'Cancelar',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, ¡eliminalo!',
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch({
@@ -67,9 +67,9 @@ export const UserHook = () => {
         setUsers(initialStateUser);
 
         Swal.fire({
-          title: "Eliminado!",
-          text: "Usuario Eliminado.",
-          icon: "Éxito",
+          title: 'Eliminado!',
+          text: 'Usuario Eliminado.',
+          icon: 'Éxito',
         });
       }
     });
@@ -78,9 +78,9 @@ export const UserHook = () => {
   const handlerUpdateUser = (updatedUser) => {
     setUsers({
       id: updatedUser.id ?? 0,
-      name: updatedUser.name ?? "",
-      email: updatedUser.email ?? "",
-      password: updatedUser.password ?? "",
+      name: updatedUser.name ?? '',
+      email: updatedUser.email ?? '',
+      password: updatedUser.password ?? '',
     });
   };
 

@@ -1,5 +1,5 @@
-import { Form } from "react-bootstrap";
-import Swal from "sweetalert2";
+import { Form } from 'react-bootstrap';
+import Swal from 'sweetalert2';
 import PropTypes from 'prop-types';
 
 export const UserFormComponent = (props) => {
@@ -10,9 +10,9 @@ export const UserFormComponent = (props) => {
     event.preventDefault();
     if (!users.name || !users.email || !users.password) {
       Swal.fire({
-        title: "Error en la validación",
-        text: "Debes completar todos los campos.",
-        icon: "warning"
+        title: 'Error en la validación',
+        text: 'Debes completar todos los campos.',
+        icon: 'warning',
       });
       return;
     }
@@ -58,7 +58,7 @@ export const UserFormComponent = (props) => {
           </Form.Group>
 
           <button type="submit" className="btn btn-primary">
-            {users.id === 0 ? "Agregar Usuario" : "Actualizar Usuario"}
+            {users.id === 0 ? 'Agregar Usuario' : 'Actualizar Usuario'}
           </button>
         </Form>
       </div>
@@ -67,7 +67,7 @@ export const UserFormComponent = (props) => {
 };
 
 UserFormComponent.propTypes = {
-    users: PropTypes.object.isRequired,
-    handlerAddUser: PropTypes.func.isRequired,
-    OnInputChange: PropTypes.func.isRequired
-}
+  users: PropTypes.object.isRequired,
+  handlerAddUser: PropTypes.func.isRequired,
+  OnInputChange: PropTypes.func.isRequired,
+};

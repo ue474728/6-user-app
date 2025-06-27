@@ -1,4 +1,4 @@
-import { UserConst } from "../const/UserConst";
+import { UserConst } from '../const/UserConst';
 const { SET_USER, UPDATE_USER, DELETE_USER } = UserConst;
 
 // El estado inicial debe ser un array de usuarios
