@@ -1,19 +1,21 @@
 import { Button } from 'react-bootstrap';
 import { UserListComponent } from './components/UserListComponent';
-import { UserHook } from './hooks/UserHook';
+
 import { UserModalFormComponent } from './components/UserModalFormComponent';
 
-export const UserAppPage = () => {
+export const UserAppPage = (props) => {
   const {
-    userList,
-    users,
-    handlerAddUser,
-    handlerUpdateUser,
-    handlerDeleteUser,
-    OnInputChange,
-    handlerVisibleForm,
-    show,
-  } = UserHook();
+    userHook: {
+      users,
+      userList,
+      show,
+      handlerAddUser,
+      OnInputChange,
+      handlerVisibleForm,
+      handlerUpdateUser,
+      handlerDeleteUser,
+    },
+  } = props;
 
   return (
     <div className="container my-4">

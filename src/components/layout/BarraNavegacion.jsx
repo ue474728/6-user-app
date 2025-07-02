@@ -7,13 +7,16 @@ export const BarraNavegacion = ({ handlerLogout, login }) => {
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="#home">Usuario APP</Navbar.Brand>
+          <Navbar.Brand href="/users">Usuario APP</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="/users/registro">Registro</Nav.Link>
+            </Nav>
             <Nav className="justify-content-end" style={{ width: '100%' }}>
               <Navbar.Brand>{name}</Navbar.Brand>
-              <Nav.Link href="#link" onClick={handlerLogout}>
-                Cerrar SesiÃ³n
+              <Nav.Link onClick={handlerLogout}>
+                Cerrar Sesión
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

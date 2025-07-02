@@ -1,7 +1,8 @@
-import { useReducer } from 'react';
+import { use, useReducer } from 'react';
 import { LoginReducer } from '../reducers/LoginReducer';
 import Swal from 'sweetalert2';
 import { LoginService } from '../service/LoginService';
+import { useNavigate } from 'react-router-dom';
 
 const loginService = LoginService;
 const initialStateLogin = {
@@ -15,7 +16,7 @@ const initialStateLogin = {
 
 export const UseLoginHook = () => {
   const [login, dispatch] = useReducer(LoginReducer, initialStateLogin);
-
+  const navigate = useNavigate();
   const handlerLogin = (props) => {
     const { email, password } = props;
     const loginResult = loginService.login(email, password);
@@ -29,6 +30,7 @@ export const UseLoginHook = () => {
         title: 'Login exitoso',
         text: 'Bienvenido al sistema.',
       });
+      navigate('/users');
     } else {
       dispatch({
         type: 'LOGIN_FAILURE',

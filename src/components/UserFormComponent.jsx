@@ -1,14 +1,29 @@
 import { Button, Form } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 
 export const UserFormComponent = (props) => {
-  const { users, handlerAddUser, OnInputChange, handlerVisibleForm } = props;
-  const { name, email, password } = users;
+  const { users, handlerAddUser, handlerVisibleForm } = props;
+  const [userForm, setUserForm] = useState(users);
+
+  useEffect(() => {
+    if (users) {
+      setUserForm(users);
+    }
+  }, [users]);
+
+  const OnInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserForm({
+      ...userForm,
+      [name]: value,
+    });
+  };
 
   const onSubmit = (event) => {
     event.preventDefault();
-    if (!users.name || !users.email || !users.password) {
+    if (!userForm.name || !userForm.email || !userForm.password) {
       Swal.fire({
         title: 'Error en la validación',
         text: 'Debes completar todos los campos.',
@@ -16,8 +31,11 @@ export const UserFormComponent = (props) => {
       });
       return;
     }
-    handlerAddUser(users);
-    handlerVisibleForm();
+
+    handlerAddUser(userForm);
+    if (handlerVisibleForm) {
+      handlerVisibleForm();
+    }
   };
 
   return (
@@ -30,7 +48,7 @@ export const UserFormComponent = (props) => {
               type="text"
               placeholder="Ingrese su nombre"
               onChange={OnInputChange}
-              value={name}
+              value={userForm.name}
               name="name"
             />
           </Form.Group>
@@ -40,7 +58,7 @@ export const UserFormComponent = (props) => {
             <Form.Control
               type="email"
               placeholder="Ingrese su email"
-              value={email}
+              value={userForm.email}
               onChange={OnInputChange}
               name="email"
             />
@@ -51,23 +69,24 @@ export const UserFormComponent = (props) => {
             <Form.Control
               type="password"
               placeholder="Ingrese su contraseña"
-              value={password}
+              value={userForm.password}
               onChange={OnInputChange}
               name="password"
             />
           </Form.Group>
-
           <button type="submit" className="btn btn-primary">
-            {users.id === 0 ? 'Agregar Usuario' : 'Actualizar Usuario'}
+            {userForm.id === 0 ? 'Agregar Usuario' : 'Actualizar Usuario'}
           </button>
-          <Button
-            variant="secondary"
-            className="ms-2"
-            onClick={() => handlerVisibleForm()}
-          >
-            {' '}
-            Cerrar{' '}
-          </Button>
+          {handlerVisibleForm && (
+            <Button
+              variant="secondary"
+              className="ms-2"
+              onClick={() => handlerVisibleForm()}
+            >
+              {' '}
+              Cerrar{' '}
+            </Button>
+          )}
         </Form>
       </div>
     </>
@@ -77,6 +96,5 @@ export const UserFormComponent = (props) => {
 UserFormComponent.propTypes = {
   users: PropTypes.object.isRequired,
   handlerAddUser: PropTypes.func.isRequired,
-  OnInputChange: PropTypes.func.isRequired,
-  handlerVisibleForm: PropTypes.func.isRequired,
+  handlerVisibleForm: PropTypes.func,
 };

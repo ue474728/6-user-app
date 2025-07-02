@@ -4,6 +4,6 @@ export const getLisUsers = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(Users);
-    }, 1000);
+    }, 0);
   });
 };

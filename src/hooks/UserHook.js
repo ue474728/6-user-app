@@ -2,6 +2,7 @@ import { getLisUsers } from '../service/UserService';
 import { useEffect, useState, useReducer } from 'react';
 import { UserReducer } from '../reducers/UserReducer';
 import { UserConst } from '../const/UserConst';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const initialStateUser = {
@@ -16,7 +17,7 @@ export const UserHook = () => {
   const [userList, setUserList] = useState([]);
   const [, dispatch] = useReducer(UserReducer, []);
   const [show, setShow] = useState(false);
-
+  const navigate = useNavigate();
   const { SET_USER, DELETE_USER, UPDATE_USER } = UserConst;
   useEffect(() => {
     const fetchUsers = async () => {
@@ -34,6 +35,7 @@ export const UserHook = () => {
       });
       setUserList((prevList) => [...prevList, user]);
       setUsers(initialStateUser);
+      navigate('/users');
     } else {
       dispatch({
         type: UPDATE_USER,
@@ -43,6 +45,7 @@ export const UserHook = () => {
         prevList.map((u) => (u.id === user.id ? user : u))
       );
       setUsers(initialStateUser);
+      navigate('/users');
     }
   };
 
@@ -110,5 +113,6 @@ export const UserHook = () => {
     OnInputChange,
     handlerVisibleForm,
     show,
+    initialStateUser,
   };
 };
