@@ -19,11 +19,11 @@ export const UserApp = () => {
           </>
         ) : (
           <>
-          <Route
-            path="/login"
-            element={<LoginFormComponent handlerLogin={handlerLogin} />}
-          />
-          <Route path='/*' element={<Navigate to='/login'/>}/>
+            <Route
+              path="/login"
+              element={<LoginFormComponent handlerLogin={handlerLogin} />}
+            />
+            <Route path="/*" element={<Navigate to="/login" />} />
           </>
         )}
       </Routes>

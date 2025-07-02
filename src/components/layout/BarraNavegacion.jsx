@@ -15,9 +15,7 @@ export const BarraNavegacion = ({ handlerLogout, login }) => {
             </Nav>
             <Nav className="justify-content-end" style={{ width: '100%' }}>
               <Navbar.Brand>{name}</Navbar.Brand>
-              <Nav.Link onClick={handlerLogout}>
-                Cerrar Sesión
-              </Nav.Link>
+              <Nav.Link onClick={handlerLogout}>Cerrar Sesión</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

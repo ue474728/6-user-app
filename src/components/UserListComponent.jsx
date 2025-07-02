@@ -46,11 +46,17 @@ export const UserListComponent = ({
                   >
                     Actualizar
                   </Button>
-                  <Button variant="danger" onClick={() => eliminarUser(id)}
-                    className="me-2">
+                  <Button
+                    variant="danger"
+                    onClick={() => eliminarUser(id)}
+                    className="me-2"
+                  >
                     Eliminar
                   </Button>
-                  <Button variant="primary" onClick={() => navigate(`/users/registro/${id}`)}>
+                  <Button
+                    variant="primary"
+                    onClick={() => navigate(`/users/registro/${id}`)}
+                  >
                     Editar Page
                   </Button>
                 </td>

@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { UserFormComponent } from './UserFormComponent';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const UserPageFormComponent = (props) => {
   const {
@@ -11,10 +12,11 @@ export const UserPageFormComponent = (props) => {
 
   useEffect(() => {
     if (id) {
-    const user = userList.find(u => String(u.id) === String(id)) || initialStateUser;
-    setUserSelected(user);
+      const user =
+        userList.find((u) => String(u.id) === String(id)) || initialStateUser;
+      setUserSelected(user);
     }
-  }, [id, userList]);
+  }, [id, userList, initialStateUser]);
 
   return (
     <>
@@ -27,4 +29,13 @@ export const UserPageFormComponent = (props) => {
       </div>
     </>
   );
+};
+
+UserPageFormComponent.propTypes = {
+  userHook: PropTypes.shape({
+    userList: PropTypes.array.isRequired,
+    handlerAddUser: PropTypes.func.isRequired,
+    OnInputChange: PropTypes.func.isRequired,
+    initialStateUser: PropTypes.object.isRequired,
+  }).isRequired,
 };

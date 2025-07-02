@@ -1,6 +1,6 @@
 import { Button } from 'react-bootstrap';
 import { UserListComponent } from './components/UserListComponent';
-
+import PropTypes from 'prop-types';
 import { UserModalFormComponent } from './components/UserModalFormComponent';
 
 export const UserAppPage = (props) => {
@@ -52,4 +52,16 @@ export const UserAppPage = (props) => {
       </div>
     </div>
   );
+};
+UserAppPage.propTypes = {
+  userHook: PropTypes.shape({
+    users: PropTypes.object.isRequired,
+    userList: PropTypes.array.isRequired,
+    show: PropTypes.bool.isRequired,
+    handlerAddUser: PropTypes.func.isRequired,
+    OnInputChange: PropTypes.func.isRequired,
+    handlerVisibleForm: PropTypes.func.isRequired,
+    handlerUpdateUser: PropTypes.func.isRequired,
+    handlerDeleteUser: PropTypes.func.isRequired,
+  }).isRequired,
 };
