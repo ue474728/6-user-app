@@ -21,6 +21,19 @@ Este proyecto es una aplicación web para la gestión de usuarios (CRUD: Crear, 
 - **[Prettier](https://prettier.io/)**: Formateador de código para un estilo consistente.
 - **[Husky](https://typicode.github.io/husky/)**: Herramienta para automatizar tareas con Git hooks.
 
+## 📂 Módulos del Proyecto
+
+El proyecto está estructurado en los siguientes módulos dentro de la carpeta `src`:
+
+- **`components`**: Contiene los componentes de React que conforman la interfaz de usuario.
+  - **`layout`**: Componentes relacionados con la estructura de la página (ej. `BarraNavegacion`).
+  - **`UI`**: Componentes reutilizables de la interfaz de usuario (ej. `UserModalFormComponent`).
+- **`const`**: Almacena constantes utilizadas en la aplicación (ej. `UserConst.js`).
+- **`data`**: Contiene datos iniciales o de prueba (ej. `User.js`).
+- **`hooks`**: Hooks personalizados de React para encapsular lógica de estado y efectos (ej. `UserHook.js`).
+- **`reducers`**: Funciones reductoras para manejar el estado de la aplicación con `useReducer` (ej. `UserReducer.js`, `LoginReducer.js`).
+- **`service`**: Lógica de negocio y comunicación con APIs o fuentes de datos (ej. `UserService.js`).
+
 ## 📊 Diagrama de Flujo de Datos
 
 El siguiente diagrama ilustra cómo fluyen los datos y las acciones a través de los componentes de la aplicación:
