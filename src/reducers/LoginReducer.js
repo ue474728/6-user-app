@@ -21,4 +21,4 @@ export const LoginReducer = (state, action) => {
     default:
       return state;
   }
-}
+};

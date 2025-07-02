@@ -1,4 +1,5 @@
-import { Navbar, Nav, NavDropdown, Container, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 export const BarraNavegacion = ({ handlerLogout, login }) => {
   const { name } = login.user;
@@ -12,7 +13,7 @@ export const BarraNavegacion = ({ handlerLogout, login }) => {
             <Nav className="justify-content-end" style={{ width: '100%' }}>
               <Navbar.Brand>{name}</Navbar.Brand>
               <Nav.Link href="#link" onClick={handlerLogout}>
-                Cerrar Sesión
+                Cerrar SesiÃ³n
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -20,4 +21,13 @@ export const BarraNavegacion = ({ handlerLogout, login }) => {
       </Navbar>
     </>
   );
+};
+
+BarraNavegacion.propTypes = {
+  handlerLogout: PropTypes.func.isRequired,
+  login: PropTypes.shape({
+    user: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };

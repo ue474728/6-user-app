@@ -1,6 +1,7 @@
 import { Button, Form } from 'react-bootstrap';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
+import PropTypes from 'prop-types';
 
 const initialStateLoginForm = {
   email: '',
@@ -73,4 +74,8 @@ export const LoginFormComponent = (props) => {
       </div>
     </div>
   );
+};
+
+LoginFormComponent.propTypes = {
+  handlerLogin: PropTypes.func.isRequired,
 };

@@ -6,12 +6,16 @@ import { LoginService } from '../service/LoginService';
 const loginService = LoginService;
 const initialStateLogin = {
   isAuthenticated: loginService.isAuthenticated(),
-  user: loginService.getUser() || { email: '', name: '', isAuthenticated: false },
+  user: loginService.getUser() || {
+    email: '',
+    name: '',
+    isAuthenticated: false,
+  },
 };
 
 export const UseLoginHook = () => {
   const [login, dispatch] = useReducer(LoginReducer, initialStateLogin);
-  
+
   const handlerLogin = (props) => {
     const { email, password } = props;
     const loginResult = loginService.login(email, password);
