@@ -4,6 +4,7 @@ Este proyecto es una aplicación web para la gestión de usuarios (CRUD: Crear, 
 
 ## ✨ Características
 
+- **Módulo de Login**: Permite a los usuarios autenticarse para acceder a la aplicación.
 - **Añadir nuevos usuarios**: A través de un formulario controlado.
 - **Listar usuarios**: Muestra la lista de usuarios en una tabla.
 - **Actualizar usuarios**: Permite editar la información de un usuario existente.
