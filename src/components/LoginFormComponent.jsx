@@ -2,14 +2,16 @@ import { Button, Form } from 'react-bootstrap';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { LoginContext } from '../context/LoginContext';
 
 const initialStateLoginForm = {
   email: '',
   password: '',
 };
 
-export const LoginFormComponent = (props) => {
-  const { handlerLogin } = props;
+export const LoginFormComponent = () => {
+  const { handlerLogin } = useContext(LoginContext);
   const [loginForm, setLoginForm] = useState(initialStateLoginForm);
   const { email, password } = loginForm;
 

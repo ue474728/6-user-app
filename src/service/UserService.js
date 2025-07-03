@@ -1,4 +1,4 @@
-import { Users } from '../data/user';
+import { Users } from '../data/User';
 
 export const getLisUsers = () => {
   return new Promise((resolve) => {

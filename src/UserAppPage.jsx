@@ -2,20 +2,20 @@ import { Button } from 'react-bootstrap';
 import { UserListComponent } from './components/UserListComponent';
 import PropTypes from 'prop-types';
 import { UserModalFormComponent } from './components/UserModalFormComponent';
+import { useContext } from 'react';
+import { UserContext } from './context/UserContext';
 
-export const UserAppPage = (props) => {
+export const UserAppPage = () => {
   const {
-    userHook: {
+    userHook: { userList = [],
       users,
-      userList,
-      show,
       handlerAddUser,
-      OnInputChange,
-      handlerVisibleForm,
       handlerUpdateUser,
       handlerDeleteUser,
-    },
-  } = props;
+      OnInputChange,
+      handlerVisibleForm,
+      show, }
+  } = useContext(UserContext);
 
   return (
     <div className="container my-4">

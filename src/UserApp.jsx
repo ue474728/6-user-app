@@ -1,10 +1,11 @@
 import { LoginFormComponent } from './components/LoginFormComponent';
-import { UseLoginHook } from './hooks/UseLoginHook';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { UserRoutes } from './routes/UserRoutes';
+import { useContext } from 'react';
+import { LoginContext } from './context/LoginContext';
 
 export const UserApp = () => {
-  const { login, handlerLogin, handlerLogout } = UseLoginHook();
+  const { login } = useContext(LoginContext);
   return (
     <>
       <Routes>
@@ -13,7 +14,7 @@ export const UserApp = () => {
             <Route
               path="/*"
               element={
-                <UserRoutes handlerLogout={handlerLogout} login={login} />
+                <UserRoutes />
               }
             />
           </>
@@ -21,7 +22,7 @@ export const UserApp = () => {
           <>
             <Route
               path="/login"
-              element={<LoginFormComponent handlerLogin={handlerLogin} />}
+              element={<LoginFormComponent />}
             />
             <Route path="/*" element={<Navigate to="/login" />} />
           </>

@@ -2,11 +2,19 @@ import { useParams } from 'react-router-dom';
 import { UserFormComponent } from './UserFormComponent';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { UserContext } from '../context/UserContext';
+import { useContext } from 'react';
 
-export const UserPageFormComponent = (props) => {
+export const UserPageFormComponent = () => {
   const {
-    userHook: { userList, handlerAddUser, OnInputChange, initialStateUser },
-  } = props;
+    userHook: {
+      userList = [],
+      handlerAddUser,
+      OnInputChange,
+      initialStateUser,
+    },
+  } = useContext(UserContext);
+
   const [userSelected, setUserSelected] = useState(initialStateUser);
   const { id } = useParams();
 

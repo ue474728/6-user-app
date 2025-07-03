@@ -2,26 +2,30 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { UserAppPage } from '../UserAppPage';
 import { BarraNavegacion } from '../components/layout/BarraNavegacion';
 import { UserPageFormComponent } from '../components/UserPageFormComponent';
-import { UserHook } from '../hooks/UserHook';
 import PropTypes from 'prop-types';
+import { UserProvider } from '../context/UserProvider';
+import { useContext } from 'react';
+import { LoginContext } from '../context/LoginContext';
 
-export const UserRoutes = ({ handlerLogout, login }) => {
-  const userHook = UserHook();
+export const UserRoutes = () => {
+  const { login, handlerLogout } = useContext(LoginContext);
   return (
     <>
-      <BarraNavegacion handlerLogout={handlerLogout} login={login} />
-      <Routes>
-        <Route path="users" element={<UserAppPage userHook={userHook} />} />
-        <Route
-          path="users/registro"
-          element={<UserPageFormComponent userHook={userHook} />}
-        />
-        <Route
-          path="users/registro/:id"
-          element={<UserPageFormComponent userHook={userHook} />}
-        />
-        <Route path="/" element={<Navigate to="users" />} />
-      </Routes>
+      <UserProvider>
+        <BarraNavegacion handlerLogout={handlerLogout} login={login} />
+        <Routes>
+          <Route path="users" element={<UserAppPage />} />
+          <Route
+            path="users/registro"
+            element={<UserPageFormComponent />}
+          />
+          <Route
+            path="users/registro/:id"
+            element={<UserPageFormComponent />}
+          />
+          <Route path="/" element={<Navigate to="users" />} />
+        </Routes>
+      </UserProvider>
     </>
   );
 };
