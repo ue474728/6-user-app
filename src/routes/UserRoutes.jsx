@@ -15,10 +15,7 @@ export const UserRoutes = () => {
         <BarraNavegacion handlerLogout={handlerLogout} login={login} />
         <Routes>
           <Route path="users" element={<UserAppPage />} />
-          <Route
-            path="users/registro"
-            element={<UserPageFormComponent />}
-          />
+          <Route path="users/registro" element={<UserPageFormComponent />} />
           <Route
             path="users/registro/:id"
             element={<UserPageFormComponent />}

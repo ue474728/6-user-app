@@ -11,19 +11,11 @@ export const UserApp = () => {
       <Routes>
         {login.isAuthenticated ? (
           <>
-            <Route
-              path="/*"
-              element={
-                <UserRoutes />
-              }
-            />
+            <Route path="/*" element={<UserRoutes />} />
           </>
         ) : (
           <>
-            <Route
-              path="/login"
-              element={<LoginFormComponent />}
-            />
+            <Route path="/login" element={<LoginFormComponent />} />
             <Route path="/*" element={<Navigate to="/login" />} />
           </>
         )}

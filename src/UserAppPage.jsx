@@ -7,14 +7,16 @@ import { UserContext } from './context/UserContext';
 
 export const UserAppPage = () => {
   const {
-    userHook: { userList = [],
+    userHook: {
+      userList = [],
       users,
       handlerAddUser,
       handlerUpdateUser,
       handlerDeleteUser,
       OnInputChange,
       handlerVisibleForm,
-      show, }
+      show,
+    },
   } = useContext(UserContext);
 
   return (
